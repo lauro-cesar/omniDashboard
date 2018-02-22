@@ -10,6 +10,7 @@ Ext.define('Miniloja.Application', {
     extend: 'Ext.app.Application',
     name: 'Miniloja',
     quickTips: false,
+    defaultToken:'app/bigPicture',
     platformConfig: {
         desktop: {
             quickTips: true
@@ -29,7 +30,6 @@ Ext.define('Miniloja.Application', {
     },
 
     onAppUpdate: function () {
-
         Ext.Msg.confirm('Atualização disponível', 'Existe uma atualização, gostaria de baixar agora?',
             function (choice) {
                 if (choice === 'yes') {

@@ -1,25 +1,21 @@
-Ext.define("Miniloja.view.main.Dashboard",{
+Ext.define("Miniloja.view.marketingManager.MarketingManager",{
     extend: "Miniloja.view.base.OmniPanel",
     initComponent: function () {
         this.callParent(arguments);
     },
-    alias:'widget.dashboard',
-    xtype:'dashboard',
-    layout:'card',
+    alias:'widget.marketingManager',
+    xtype:'marketingManager',
+    layout:'fit',
     dockedItems: [
         {
             xtype: 'omniNav',
-            dock: 'left'
-        },
-        {
-            xtype: 'omniTray',
-            dock: 'bottom'
+            dock: 'top',
         }
     ],
     items:[
         {
             xtype: 'omniPanel',
-            html:'mala'
+            html:'marketing Manager'
         }
     ]
     });
