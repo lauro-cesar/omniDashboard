@@ -9,12 +9,7 @@ Ext.define('Miniloja.view.main.MainController', {
         'site/:siteID'          : 'onOpenSite'
     },
     config: {
-        listen: {       
-           store:{
-                '*':{
-                    load:'omniStoreLoaded'
-                },
-           },
+        listen: {
             component: {
                 '*': {
                     redirectTO:'onRedirectTO'
@@ -23,6 +18,4 @@ Ext.define('Miniloja.view.main.MainController', {
             }
         }
     }
-
-
 });

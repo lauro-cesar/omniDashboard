@@ -7,16 +7,17 @@ Ext.define("Miniloja.view.omniDashboard.OmniNav",{
     defaults:{
         scale:'large'
     },
-    ui:'omniNav',
+    ui:'omninav',
     items:[
         {
             xtype:'omniButton',
-            iconCls:'x-fa fa-bar-chart',
+            iconCls:'x-fa fa-line-chart',
             tooltip:"Big Picture",
             handler:function(button){
                 button.fireEvent('redirectTO','#app/bigPicture');
             }
         },
+        
         {
             xtype:'omniButton',
             iconCls:'x-fa fa-list-ol',

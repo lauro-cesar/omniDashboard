@@ -1,32 +1,29 @@
-/**
- * This class is the view model for the Main view of the application.
- */
 Ext.define('Miniloja.view.main.MainModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.main',
-    data:{
-        'name':'mala',
-    },
-    formulas: {
-        UserAccount: {
+    formulas:{
+        systemSettings:{
             bind: {
-                bindTo: '{user_accounts}',
-                deep: true
+                bindTo:'{omniSettings}',
+                deep:true
             },
-            get: function(store){
-                "use strict";
+            get: function(store) {
                 return store.first();
             }
-        },
-        isLoaded:function(get){
-            return get('UserAccount.loaded');
         }
     },
-    stores: {
-        user_accounts:{
-          model:'UserAccount',
+    stores:{
+        omniSettings:{
+            model:'SystemSettings',
             autoLoad: true,
-            startParam: 'offset'
+            listeners: {
+                load:function(store,records, successful, operation, eOpts){
+                    if(!successful){
+                        var redirect_to=window.location.href;
+                        window.location=Ext.String.format("{0}?login_callback={1}",operation._response.login_url,redirect_to);
+                    }
+                }
+            }
         }
     }
 });

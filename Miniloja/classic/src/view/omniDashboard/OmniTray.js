@@ -4,7 +4,7 @@ Ext.define("Miniloja.view.omniDashboard.OmniTray",{
     xtype:'omniTray',
     alias:'widget.omniTray',
     pack:'start',
-    ui:'omniTray',
+    ui:'omnitray',
     defaults:{
         scale:'medium'
     },
@@ -18,6 +18,15 @@ Ext.define("Miniloja.view.omniDashboard.OmniTray",{
             tooltip:"Suporte ao usuário",
             handler:function(button){
                 button.fireEvent('redirectTO','#app/userSupport');
+            }
+        },
+        '-',
+        {
+            xtype:'omniButton',
+            iconCls:'x-fa fa-info',
+            tooltip:'About Us',
+            handler:function(button) {
+                button.fireEvent('redirectTO','#app/aboutUs');
             }
         }
     ]
