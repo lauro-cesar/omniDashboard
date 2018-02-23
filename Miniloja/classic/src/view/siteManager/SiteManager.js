@@ -14,8 +14,7 @@ Ext.define("Miniloja.view.siteManager.SiteManager",{
     ],
     items:[
         {
-            xtype: 'omniPanel',
-            html:'Site Managers'
+            xtype: 'omniPanel'
         }
     ]
     });

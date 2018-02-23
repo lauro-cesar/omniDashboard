@@ -10,7 +10,11 @@ Ext.define("Miniloja.view.accountLogout.AccountLogout",{
     items:[
         {
             xtype: 'omniPanel',
-            html:'Exit??'
+            title:'Sair da conta',
+            iconCls:'x-fa fa-power-off',
+            bind:{
+                html:'<h1>{sessionSettings.fullName} deseja desconectar do sistema OmniEshops?</h1> <a href={logout_url}>Sair Agora</a>'
+            }
         }
     ]
     });

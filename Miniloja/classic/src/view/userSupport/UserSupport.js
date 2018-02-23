@@ -9,8 +9,7 @@ Ext.define("Miniloja.view.userSupport.UserSupport",{
     layout:'fit',
     items:[
         {
-            xtype: 'omniPanel',
-            html:'Need some help to use this app?'
+            xtype: 'omniPanel'
         }
     ]
     });

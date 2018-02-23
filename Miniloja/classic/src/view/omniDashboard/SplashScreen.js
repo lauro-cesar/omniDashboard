@@ -12,11 +12,16 @@ Ext.define("Miniloja.view.omniDashboard.SplashScreen",{
     closable:false,
     minimizable:false,
     maximizable:false,
-    bodyPadding:50,
-    html:'Carregando os dados de sua conta...',
     hidden:true,
     bind:{
-        visible:'{sessionLoading}'
+        visible:'{showLoginScreen}'
     },
-    title:'Bem vindo ao sistema OmniEshops - Carregando sua conta.'
+    title:'Bem vindo ao sistema OmniEshops - Carregando sua conta.',
+    items:[
+        {
+            xtype:'omniPanel',
+            bodyPadding:10,
+            html:'Carregando os dados de sua conta...',
+        }
+    ]
 });

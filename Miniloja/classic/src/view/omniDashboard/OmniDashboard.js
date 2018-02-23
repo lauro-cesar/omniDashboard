@@ -7,9 +7,6 @@ Ext.define("Miniloja.view.omniDashboard.OmniDashboard",{
     xtype:'omniDashboard',
     layout:'card',
     reference:'omniDashboard',
-    defaults:{
-        bodyPadding:5
-    },
     dockedItems: [
         {
             xtype: 'omniNav',
@@ -43,6 +40,9 @@ Ext.define("Miniloja.view.omniDashboard.OmniDashboard",{
         },
         {
             xtype:'accountLogout'
+        },
+        {
+            xtype:'wizardManager'
         },
         {
             xtype:'userSupport'

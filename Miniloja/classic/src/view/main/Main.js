@@ -18,7 +18,9 @@ Ext.define('Miniloja.view.main.Main', {
         'Miniloja.view.systemSettings.SystemSettings',
         'Miniloja.view.accountLogout.AccountLogout',
         'Miniloja.view.userSupport.UserSupport',
-        'Miniloja.view.omniDashboard.SplashScreen'
+        'Miniloja.view.omniDashboard.SplashScreen',
+        'Miniloja.view.wizardManager.WizardManager',
+        'Miniloja.view.base.OmniTapPanel'
     ],
     controller: 'main',
     viewModel: 'main',

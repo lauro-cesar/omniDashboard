@@ -8,8 +8,7 @@ Ext.define("Miniloja.view.bigPicture.BigPicture",{
     layout:'fit',
     items:[
         {
-            xtype: 'omniPanel',
-            html:'Full OverView - DashBoard widgets...'
+            xtype: 'omniPanel'
         }
     ]
     });

@@ -2,10 +2,25 @@ Ext.define('Miniloja.view.main.MainModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.main',
     data:{
-        loginUrl:'https://accounts.omnieshop.com/accountmanager/profile/'
+        showLoginScreen:false
     },
-
     formulas:{
+        userAvatar:function(get){
+            var settings= get('sessionSettings');
+            if(Ext.typeOf(settings) === 'object') {
+                return settings.get('avatar_url');
+            } else {
+                return "";
+            }  
+        },
+        isConnected: function(get) {
+            var settings= get('sessionSettings');
+            if(Ext.typeOf(settings) === 'object') {
+                return true;
+            } else {
+                return false;
+            }  
+        },
         sessionSettings:{
             bind: {
                 bindTo:'{omniSession}',
@@ -27,19 +42,9 @@ Ext.define('Miniloja.view.main.MainModel', {
     },
     stores:{
         omniSession:{
+            id:'omniSession',
             model:'OmniSession',
-            autoLoad: true,
-            listeners: {
-                load:function(store,records, successful, operation, eOpts){
-                    // TODO: fireEvent with operation object.
-                    if(!successful){
-                        var redirect_to=window.location.href;
-                        store.fireEvent("setLoginUrl",Ext.String.format("{0}?login_callback={1}",operation._response.login_url,redirect_to));
-                    } else {
-                        store.fireEvent("setLogutUrl",Ext.String.format("{0}?logout_callback={1}",operation._response.logout_url,redirect_to));
-                    }
-                }
-            }
+            autoLoad: true
         }
     }
 });

@@ -1,13 +1,13 @@
-Ext.define("Miniloja.view.customerCare.CustomerCare",{
+Ext.define("Miniloja.view.wizardManager.WizardManager",{
     extend: "Miniloja.view.base.OmniPanel",
     initComponent: function () {
         this.callParent(arguments);
     },
-    alias:'widget.customerCare',
-    xtype:'customerCare',
+    alias:'widget.wizardManager',
+    xtype:'wizardManager',
     layout:'fit',
-    title:'Bem vindo ao atendimento ao cliente',
-    iconCls:'x-fa fa-shopping-cart',
+    title:'Bem vindo ao omniEshops Wizard - Começe aqui.',
+    iconCls:'x-fa fa-magic',
     defaults:{
         bodyPadding:5,
     },
@@ -18,7 +18,7 @@ Ext.define("Miniloja.view.customerCare.CustomerCare",{
                 {
                     xtype:'omniPanel',
                     tabConfig: {
-                        title: 'Mensageiro',
+                        title: 'Sites',
                         iconCls:'x-fa fa-th',
                         tooltip: 'Crie e gerencie seus sites e lojas'
                     }
@@ -26,19 +26,31 @@ Ext.define("Miniloja.view.customerCare.CustomerCare",{
                 {
                     xtype:'omniPanel',
                     tabConfig: {
-                        title: 'Tickets',
-                        iconCls:'x-fa fa-tasks',
-                        tooltip: 'Pedidos de Suporte'
+                        title: 'Páginas',
+                        iconCls:'x-fa fa-sitemap',
+                        tooltip: 'Sua conta no OmniEshops'
                     }
                 },
                 {
                     xtype:'omniPanel',
                     tabConfig: {
-                        title: 'Clientes',
-                        iconCls:'x-fa fa-users',
+                        title: 'Arquivos',
+                        iconCls:'x-fa fa-files-o',
                         tooltip: 'Gerenciador de arquivos'
                     }
+                },
+                {
+                    xtype:'omniPanel',
+                    tabConfig: {
+                        title: 'Grupo de trabalho',
+                        iconCls:'x-fa fa-users',
+                        tooltip: 'Grupo de trabalho'
+                    }
                 }
+
+                
+
             ]
-        }]
+        }
+    ]
     });

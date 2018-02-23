@@ -20,7 +20,7 @@ Ext.define("Miniloja.view.omniDashboard.OmniNav",{
         
         {
             xtype:'omniButton',
-            iconCls:'x-fa fa-list-ol',
+            iconCls:'x-fa fa-shopping-cart',
             tooltip:"Order manager",
             handler:function(button){
                 button.fireEvent('redirectTO','#app/orderManager');
@@ -51,20 +51,40 @@ Ext.define("Miniloja.view.omniDashboard.OmniNav",{
             }
         },
         {
+            xtype:'omniButton',
+            hidden:true,
+            bind:{
+                visible:'{!isConnected}'
+            },
+            iconCls:'x-fa fa-sign-in',
+            tooltip:"Account sign in",
+            handler:function(button){
+                button.fireEvent('accountSignIn');
+            }
+        },
+        {
             xtype: 'tbfill'
         },
         {
             xtype:'omniButton',
-            iconCls:'x-fa fa-cogs',
-            tooltip:"System Settings",
+            hidden:true,
+            bind:{
+                visible:'{isConnected}',
+                html:'<img src={userAvatar} style="margin-top:2px" width=32px height=32px>'
+            },            
             handler:function(button){
                 button.fireEvent('redirectTO','#app/systemSettings');
-            }
+            },
+            html:'<img src=/resources/avatar.png  width=32px height=32px>'
         },
         {
             xtype:'omniButton',
-            iconCls:'x-fa fa-power-off',
-            tooltip:"Account logou out",
+            hidden:true,
+            bind:{
+                visible:'{isConnected}'
+            },
+            iconCls:'x-fa fa-sign-out',
+            tooltip:"Account logout",
             handler:function(button){
                 button.fireEvent('redirectTO','#app/accountLogout');
             }

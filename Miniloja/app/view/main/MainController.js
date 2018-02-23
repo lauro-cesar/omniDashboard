@@ -10,14 +10,16 @@ Ext.define('Miniloja.view.main.MainController', {
     },
     config: {
         listen: {
-            store:{
-                '*':{
-                    setLoginUrl:'onSetLoginUrl'
+            store: {
+                '#omniSession':{
+                    load:'onLoadSession',
+                    beforeload:'onBeforeloadSession'
                 }
             },
             component: {
                 '*': {
-                    redirectTO:'onRedirectTO'
+                    redirectTO:'onRedirectTO',
+                    accountSignIn:'onAccountSignIn'
                 }
 
             }

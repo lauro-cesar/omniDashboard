@@ -14,8 +14,7 @@ Ext.define("Miniloja.view.marketingManager.MarketingManager",{
     ],
     items:[
         {
-            xtype: 'omniPanel',
-            html:'marketing Manager'
+            xtype: 'omniPanel'
         }
     ]
     });
