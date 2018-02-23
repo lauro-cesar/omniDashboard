@@ -20,12 +20,15 @@ Ext.define('Miniloja.Application', {
         // TODO: add global / shared stores here
     ],
     models:[
-        'SystemSettings'
+        'OmniSession'
     ],
     launch: function () {
         var mainView = Ext.create('Miniloja.view.main.Main',{
             id:'omniDashboard'
         }); 
+        var splashScreen = Ext.create('widget.splashScreen');
+        mainView.add(splashScreen);
+        splashScreen.show(true).center();
     },
     onAppUpdate: function () {
         Ext.Msg.confirm('Atualização disponível', 'Existe uma atualização, gostaria de baixar agora?',

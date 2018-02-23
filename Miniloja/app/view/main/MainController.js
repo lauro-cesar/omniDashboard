@@ -10,6 +10,11 @@ Ext.define('Miniloja.view.main.MainController', {
     },
     config: {
         listen: {
+            store:{
+                '*':{
+                    setLoginUrl:'onSetLoginUrl'
+                }
+            },
             component: {
                 '*': {
                     redirectTO:'onRedirectTO'

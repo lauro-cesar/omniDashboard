@@ -12,6 +12,10 @@ Ext.define('Miniloja.view.base.OmniController', {
     onMetaChange:function(store,meta){
         console.log(meta);
     },
+    onSetLoginUrl:function(loginUrl){
+        console.log("Setting new login_url");
+        console.log(loginUrl);
+    },
     onRedirectTO:function(appid){
       this.redirectTo(appid,'force','replace');
     }

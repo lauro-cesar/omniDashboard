@@ -1,6 +1,6 @@
-Ext.define('Miniloja.model.SystemSettings', {
+Ext.define('Miniloja.model.OmniSession', {
     extend: 'Miniloja.model.Base',
-    alias: 'model.systemSettings',
+    alias: 'model.omniSession',
     proxy: {
         type: 'jsonp',
         callbackKey: 'omniCallBack',

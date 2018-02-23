@@ -1,26 +1,42 @@
 Ext.define('Miniloja.view.main.MainModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.main',
+    data:{
+        loginUrl:'https://accounts.omnieshop.com/accountmanager/profile/'
+    },
+
     formulas:{
-        systemSettings:{
+        sessionSettings:{
             bind: {
-                bindTo:'{omniSettings}',
+                bindTo:'{omniSession}',
                 deep:true
             },
             get: function(store) {
                 return store.first();
             }
+        },
+        sessionLoading:{
+            bind: {
+                bindTo:'{omniSession}',
+                deep:true
+            },
+            get: function(store) {
+                return store.loading;
+            }
         }
     },
     stores:{
-        omniSettings:{
-            model:'SystemSettings',
+        omniSession:{
+            model:'OmniSession',
             autoLoad: true,
             listeners: {
                 load:function(store,records, successful, operation, eOpts){
+                    // TODO: fireEvent with operation object.
                     if(!successful){
                         var redirect_to=window.location.href;
-                        window.location=Ext.String.format("{0}?login_callback={1}",operation._response.login_url,redirect_to);
+                        store.fireEvent("setLoginUrl",Ext.String.format("{0}?login_callback={1}",operation._response.login_url,redirect_to));
+                    } else {
+                        store.fireEvent("setLogutUrl",Ext.String.format("{0}?logout_callback={1}",operation._response.logout_url,redirect_to));
                     }
                 }
             }
