@@ -21,7 +21,7 @@ Ext.define("Miniloja.view.systemSettings.SystemSettings",{
                         tooltip: 'Sua conta no OmniEshops'
                     },
                     bind:{
-                        html:'Nome: {sessionSettings.fullName}<br><a href={logout_url}>Logout url</a>'
+                        html:'Nome: {sessionSettings.fullName}<br><a href="{logout_url}">Logout url</a>'
                     }
                 },
                 {

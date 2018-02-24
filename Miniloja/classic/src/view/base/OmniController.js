@@ -10,8 +10,8 @@ Ext.define('Miniloja.view.base.OmniController', {
         }
     },
     onMetaChange:function(store,meta){
-        console.log("Mala");
-        console.log(meta);
+        // console.log("Mala");
+        // console.log(meta);
     },
     onBeforeloadSession:function(store, operation, eOpts){
         this.getViewModel().setData({'showLoginScreen':true});
@@ -22,15 +22,26 @@ Ext.define('Miniloja.view.base.OmniController', {
         }
         splashScreen.show(true).center();
     },
+    onSessionException:function(connection,response, operation, eOpts ){
+
+    },
+    onDashReady:function(box){
+        Ext.fly('appLoadingIndicator').hide();
+    },
     onLoadSession:function(store,records, successful, operation, eOpts){
-        this.getViewModel().setData(operation._response);
-        this.getViewModel().setData({'redirect_to':window.location.href});
-        
-        if(successful) {
+        this.getViewModel().setData({'operation':operation});
+        this.getViewModel().setData({'redirect_to':window.location.href});        
+        // console.log( this.getViewModel().getData() );
+        console.log(operation);
+
+        if(!operation.success){
             this.getViewModel().setData({'showLoginScreen':false});
-            // this.onOpenApp('systemSettings');
+            Ext.Msg.alert('Erro ao conectar', 'Nao consegui conectar...');
         } else {
-            window.location = Ext.String.format("{0}?{1}",this.getViewModel().getData().login_url,this.getViewModel().getData().redirect_to);
+            this.getViewModel().setData({'showLoginScreen':false});
+            if(operation._response.loginRequired) {
+                window.location = Ext.String.format("{0}",operation._response.login_url);
+            } 
         }
     },
     onAccountSignIn:function(){        

@@ -5,6 +5,12 @@ Ext.define('Miniloja.view.main.MainModel', {
         showLoginScreen:false
     },
     formulas:{
+        login_url:function(get){
+            return get('operation._response.login_url');
+        },        
+        logout_url:function(get){
+            return get('operation._response.logout_url');
+        },
         userAvatar:function(get){
             var settings= get('sessionSettings');
             if(Ext.typeOf(settings) === 'object') {

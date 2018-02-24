@@ -13,10 +13,14 @@ Ext.define('Miniloja.view.main.MainController', {
             store: {
                 '#omniSession':{
                     load:'onLoadSession',
-                    beforeload:'onBeforeloadSession'
+                    beforeload:'onBeforeloadSession',
+                    exception :'onSessionException'
                 }
             },
             component: {
+                'omniDashboard': {
+                    boxready:'onDashReady'
+                },
                 '*': {
                     redirectTO:'onRedirectTO',
                     accountSignIn:'onAccountSignIn'

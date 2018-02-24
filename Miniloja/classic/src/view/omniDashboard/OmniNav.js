@@ -56,7 +56,7 @@ Ext.define("Miniloja.view.omniDashboard.OmniNav",{
             bind:{
                 visible:'{!isConnected}'
             },
-            iconCls:'x-fa fa-sign-in',
+            iconCls:'x-fa fa-power-off',
             tooltip:"Account sign in",
             handler:function(button){
                 button.fireEvent('accountSignIn');
