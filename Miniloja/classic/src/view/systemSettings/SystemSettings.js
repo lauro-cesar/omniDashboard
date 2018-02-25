@@ -11,8 +11,49 @@ Ext.define("Miniloja.view.systemSettings.SystemSettings",{
     items:[
         {
             xtype:'omniTapPanel',
-            html:null,
             items:[
+                {
+                    xtype:'omniPanel',
+                    tabConfig: {
+                        title: 'Aparencia',
+                        iconCls:'x-fa fa-cogs',
+                        tooltip: 'Preferencias do sistema.'
+                    },
+                    layout:'fit',
+                    default:{
+                        bodyPadding:10
+                    },
+                    items:[
+                        {
+                            xtype      : 'fieldcontainer',
+                            fieldLabel : 'Tamanho do Botao',
+                            defaultType: 'radiofield',
+                            defaults: {
+                                flex: 1,
+                                name      : 'buttonScale',
+                                bind:{
+                                    value:'{buttonScale}'
+                                }
+                            },
+                            layout: 'hbox',
+                            items: [
+                                {
+                                    boxLabel  : 'Medio',
+                                    inputValue: 'medium',
+                                    id        : 'm'
+                                }, {
+                                    boxLabel  : 'Grande',
+                                    inputValue: 'large',
+                                    id        : 'l'
+                                }, {
+                                    boxLabel  : 'Pequeno',
+                                    inputValue: 'small',
+                                    id        : 's'
+                                }
+                            ]
+                        }
+                    ]
+                },
                 {
                     xtype:'omniPanel',
                     tabConfig: {
@@ -24,14 +65,7 @@ Ext.define("Miniloja.view.systemSettings.SystemSettings",{
                         html:'Nome: {sessionSettings.fullName}<br><a href="{logout_url}">Logout url</a>'
                     }
                 },
-                {
-                    xtype:'omniPanel',
-                    tabConfig: {
-                        title: 'Aparencia',
-                        iconCls:'x-fa fa-wrench',
-                        tooltip: 'Sua conta no OmniEshops'
-                    }
-                }
+
 
             ]
         }

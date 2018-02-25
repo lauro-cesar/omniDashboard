@@ -7,17 +7,16 @@ Ext.define("Miniloja.view.omniDashboard.OmniNav",{
     defaults:{
         scale:'large'
     },
-    ui:'omninav',
+    ui:'footer',
     items:[
         {
             xtype:'omniButton',
-            iconCls:'x-fa fa-line-chart',
-            tooltip:"Big Picture",
+            iconCls:'x-fa fa-cogs',
+            tooltip:"Welcome",
             handler:function(button){
                 button.fireEvent('redirectTO','#app/bigPicture');
             }
         },
-        
         {
             xtype:'omniButton',
             iconCls:'x-fa fa-shopping-cart',
@@ -52,30 +51,19 @@ Ext.define("Miniloja.view.omniDashboard.OmniNav",{
         },
         {
             xtype:'omniButton',
-            hidden:true,
+            iconCls:'x-fa fa-cogs',
+            visible:true,
+            hidden:false,
             bind:{
-                visible:'{!isConnected}'
+                iconCls:'x-fa {settingsIcon}',
             },
-            iconCls:'x-fa fa-power-off',
-            tooltip:"Account sign in",
-            handler:function(button){
-                button.fireEvent('accountSignIn');
+            tooltip:"Account settings",        
+            handler:function(button) {
+                button.fireEvent('redirectTO','#app/systemSettings');
             }
         },
         {
             xtype: 'tbfill'
-        },
-        {
-            xtype:'omniButton',
-            hidden:true,
-            bind:{
-                visible:'{isConnected}',
-                html:'<img src={userAvatar} style="margin-top:2px" width=32px height=32px>'
-            },            
-            handler:function(button){
-                button.fireEvent('redirectTO','#app/systemSettings');
-            },
-            html:'<img src=/resources/avatar.png  width=32px height=32px>'
         },
         {
             xtype:'omniButton',

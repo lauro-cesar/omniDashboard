@@ -6,5 +6,5 @@ Ext.define("Miniloja.view.base.OmniToolbar",{
     pack:'start',
     defaults:{
         scale:'large'
-    }
+    },
 });

@@ -1,6 +1,9 @@
 {
     "name": "omni-theme",
     "version": "1.0.0",
+    "requires": [
+        "theme-neptune"
+    ],
     "sencha": {
          "namespace": "Ext",
         "type": "theme",
@@ -46,7 +49,6 @@
                 "${package.dir}/examples"
             ]
         },
-        "framework": "ext",
-        "requires": []
+        "framework": "ext"
     }
 }

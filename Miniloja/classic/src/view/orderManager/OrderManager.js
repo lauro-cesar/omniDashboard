@@ -8,8 +8,10 @@ Ext.define("Miniloja.view.orderManager.OrderManager",{
     layout:'fit',
     title:'Bem vindo ao gerencidor de pedidos',
     iconCls:'x-fa fa-shopping-cart',
+    html:null,
     defaults:{
         bodyPadding:5,
+        html:null
     },
     items:[
         {

@@ -1,7 +1,6 @@
 # omniDashboard
-Omni Eshops Admin Dashboard GPL version (Only Local Storage support) 
+Omni Eshops Admin Dashboard GPL version with web3 support.
 
+Help wanted:
 
-Starting a new version with a lot new features.
-
-- Data is always save in localStorage - and published when done.
+- Unit tests

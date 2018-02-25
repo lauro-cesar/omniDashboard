@@ -1,31 +1,36 @@
 Ext.define('Miniloja.view.main.MainModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.main',
-    data:{
-        showLoginScreen:false
-    },
-    formulas:{
-        login_url:function(get){
-            return get('operation._response.login_url');
-        },        
+    formulas: {
+        userAvatar:function(get){
+            if(get('isConnected')){
+                return get('sessionSettings.avatar_url');
+            } else {
+                return "resources/default_avatar.png";
+            }
+        },
         logout_url:function(get){
             return get('operation._response.logout_url');
         },
-        userAvatar:function(get){
-            var settings= get('sessionSettings');
-            if(Ext.typeOf(settings) === 'object') {
-                return settings.get('avatar_url');
-            } else {
-                return "";
-            }  
+        login_url:function(get){
+            return get('operation._response.login_url');
         },
-        isConnected: function(get) {
-            var settings= get('sessionSettings');
-            if(Ext.typeOf(settings) === 'object') {
-                return true;
+        isConnected:function(get) {
+            var session= get('sessionSettings');
+            if(Ext.typeOf(session) === 'object') {
+                return session.isValid();
             } else {
                 return false;
-            }  
+            }
+        },
+        userSettings:{
+            bind: {
+                bindTo:'{omniSettings}',
+                deep:true
+            },
+            get: function(store) {
+                return store.first();
+            }
         },
         sessionSettings:{
             bind: {
@@ -47,10 +52,20 @@ Ext.define('Miniloja.view.main.MainModel', {
         }
     },
     stores:{
+        omniSettings:{
+            id:'omniSettings',
+            model:'OmniSetting',
+            autoLoad: true
+        },
         omniSession:{
             id:'omniSession',
             model:'OmniSession',
-            autoLoad: true
+            autoLoad: false
+        },
+        omniTaskQueue:{
+            id:'omniTaskQueue',
+            model:'OmniTask',
+            autoLoad:false
         }
     }
 });

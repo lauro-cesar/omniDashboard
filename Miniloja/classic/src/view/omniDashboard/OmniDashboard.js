@@ -5,8 +5,11 @@ Ext.define("Miniloja.view.omniDashboard.OmniDashboard",{
     },
     alias:'widget.omniDashboard',
     xtype:'omniDashboard',
-    layout:'card',
     reference:'omniDashboard',
+    layout:'card',
+    defaults:{
+        html:null,
+    },
     dockedItems: [
         {
             xtype: 'omniNav',

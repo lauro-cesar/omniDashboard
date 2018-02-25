@@ -1,31 +1,45 @@
-/**
- * The main application class. An instance of this class is created by app.js when it
- * calls Ext.application(). This is the ideal place to handle application launch and
- * initialization details.
- */
-
-
-
 Ext.define('Miniloja.Application', {
     extend: 'Ext.app.Application',
     name: 'Miniloja',
     quickTips: false,
-    defaultToken:'app/bigPicture',
+    defaultToken:'app/systemSettings',
     platformConfig: {
         desktop: {
             quickTips: true
         }
     },
-    stores: [
-        // TODO: add global / shared stores here
+    requires: [
+        'Ext.plugin.Viewport',
+        'Ext.window.MessageBox',
+        'Miniloja.view.base.*',
+        'Miniloja.view.base.OmniController',
+        'Miniloja.view.siteManager.SiteManager',
+        'Miniloja.view.orderManager.OrderManager',
+        'Miniloja.view.inventoryManager.InventoryManager',
+        'Miniloja.view.marketingManager.MarketingManager',
+        'Miniloja.view.customerCare.CustomerCare',
+        'Miniloja.view.bigPicture.BigPicture',
+        'Miniloja.view.main.MainController',
+        'Miniloja.view.main.MainModel',
+        'Miniloja.view.omniDashboard.OmniNav',
+        'Miniloja.view.omniDashboard.OmniTray',        
+        'Miniloja.view.omniDashboard.OmniDashboard',
+        'Miniloja.view.systemSettings.SystemSettings',
+        'Miniloja.view.accountLogout.AccountLogout',
+        'Miniloja.view.userSupport.UserSupport',
+        'Miniloja.view.omniDashboard.SplashScreen',
+        'Miniloja.view.wizardManager.WizardManager'
     ],
     models:[
-        'OmniSession'
+        'OmniSession','OmniTask','OmniSetting'
     ],
     launch: function () {
-        var mainView = Ext.create('Miniloja.view.main.Main',{
-            id:'omniDashboard'
-        }); 
+        
+        console.log("criando...");
+
+        // var mainView = Ext.create('Miniloja.view.main.Main');
+
+
     },
     onAppUpdate: function () {
         Ext.Msg.confirm('Atualização disponível', 'Existe uma atualização, gostaria de baixar agora?',
