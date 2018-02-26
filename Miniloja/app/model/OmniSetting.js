@@ -14,9 +14,12 @@ Ext.define('Miniloja.model.OmniSetting', {
             rootProperty: 'itens'
         }
     },
+    changeScale:function(){
+        
+    },
     fields: [
         { name: 'tabPosition', type: 'string',defaultValue:'left' },
         { name: 'tabRotation', type: 'int', defaultValue:0 },
-        { name: 'buttonScale', type:'string',defaultValue:'large'}
+        { name: 'buttonSize', type:'int',defaultValue:'2'}
     ]
 });

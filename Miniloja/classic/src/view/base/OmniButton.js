@@ -3,6 +3,6 @@ Ext.define("Miniloja.view.base.OmniButton",{
     alias:"widget.omniButton",
     xtype:"omniButton",
     bind:{
-        scale:'{userSettings.buttonScale}'
+        scale:'{buttonScale}'
     }
 });

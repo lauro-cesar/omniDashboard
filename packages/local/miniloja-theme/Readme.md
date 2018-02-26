@@ -1,2 +1,0 @@
-# miniloja-theme - Read Me
-

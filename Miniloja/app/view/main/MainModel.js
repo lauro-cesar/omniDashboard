@@ -23,13 +23,26 @@ Ext.define('Miniloja.view.main.MainModel', {
                 return false;
             }
         },
+        buttonScale:function(get){
+            var Arr = ['small','medium','large'];
+            return Arr[get('userSettings.buttonSize')];
+        },
         userSettings:{
             bind: {
                 bindTo:'{omniSettings}',
                 deep:true
             },
             get: function(store) {
-                return store.first();
+                if(store.count() <1){
+                    var settings = Ext.create('model.omniSetting');
+                    settings.save();
+                    store.add(settings);
+                    return settings;
+                } else {
+                    var record = store.first();
+                    record.changeScale();
+                    return record;
+                }
             }
         },
         sessionSettings:{
@@ -54,18 +67,22 @@ Ext.define('Miniloja.view.main.MainModel', {
     stores:{
         omniSettings:{
             id:'omniSettings',
+            autoSync:true,
             model:'OmniSetting',
-            autoLoad: true
+            autoLoad: true,
+            session:true
         },
         omniSession:{
             id:'omniSession',
             model:'OmniSession',
-            autoLoad: false
+            autoLoad: false,
+            session:true
         },
         omniTaskQueue:{
             id:'omniTaskQueue',
             model:'OmniTask',
-            autoLoad:false
+            autoLoad:false,
+            session:true
         }
     }
 });

@@ -8,18 +8,16 @@ Ext.define("Miniloja.view.orderManager.OrderManager",{
     layout:'fit',
     title:'Bem vindo ao gerencidor de pedidos',
     iconCls:'x-fa fa-shopping-cart',
-    html:null,
-    defaults:{
-        bodyPadding:5,
-        html:null
-    },
     items:[
         {
             xtype:'omniTapPanel',
+            bodyPadding:'0 0 0 10',
             items:[
                 {
                     xtype:'omniPanel',
+                    bodyPadding:'0 0 0 10',
                     tabConfig: {
+                        bodyPadding:'0 0 0 10',
                         title: 'Pedidos em Andamento',
                         iconCls:'x-fa fa-th',
                         tooltip: 'Crie e gerencie seus sites e lojas'

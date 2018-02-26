@@ -3,34 +3,31 @@
     "namespace": "Miniloja",
     "version": "1.0.0.0",
     "framework": "ext62",
+    "theme":"theme-neptune",
     "requires": [
         "font-awesome"
     ],
     "indexHtmlPath": "index.html",
     "classpath": [
         "app",
-        "${toolkit.name}/src"
+        "${toolkit.name}/src",
+        "${toolkit.name}/src/view/base"
     ],
     "overrides": [
         "overrides",
         "${toolkit.name}/overrides"
     ],
     "fashion": {
-
         "inliner": {
             "enable": false
         }
     },
     "sass": {
-        "namespace": "Miniloja",
-
-        
+        "namespace": "Miniloja",        
         "etc": [
             "sass/etc/all.scss",
             "${toolkit.name}/sass/etc/all.scss"
-        ],
-
-       
+        ],       
         "var": [
             "sass/var/all.scss",
             "sass/var",

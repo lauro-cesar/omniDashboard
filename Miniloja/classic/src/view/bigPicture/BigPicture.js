@@ -8,7 +8,10 @@ Ext.define("Miniloja.view.bigPicture.BigPicture",{
     layout:'fit',
     items:[
         {
-            xtype: 'omniPanel'
+            xtype: 'omniPanel',
+            title:'Bem vindo ap sistema OmniEshops',
+            iconCls:'x-fa fa-home',
+            html:'Not Implemented'
         }
     ]
     });

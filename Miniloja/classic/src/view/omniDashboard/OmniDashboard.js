@@ -1,14 +1,17 @@
 Ext.define("Miniloja.view.omniDashboard.OmniDashboard",{
     extend: "Miniloja.view.base.OmniPanel",
     initComponent: function () {
+        console.log("Iniciando dash");
         this.callParent(arguments);
     },
     alias:'widget.omniDashboard',
     xtype:'omniDashboard',
-    reference:'omniDashboard',
+    reference:'omni-dashboard-panel',
     layout:'card',
     defaults:{
         html:null,
+        border:false,
+        frame:false,
     },
     dockedItems: [
         {

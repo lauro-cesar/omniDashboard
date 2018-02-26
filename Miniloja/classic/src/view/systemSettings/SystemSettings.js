@@ -11,15 +11,16 @@ Ext.define("Miniloja.view.systemSettings.SystemSettings",{
     items:[
         {
             xtype:'omniTapPanel',
+            bodyPadding:10,
+            ui:'omnitab',
             items:[
                 {
                     xtype:'omniPanel',
-                    tabConfig: {
-                        title: 'Aparencia',
-                        iconCls:'x-fa fa-cogs',
-                        tooltip: 'Preferencias do sistema.'
-                    },
+                    title: 'Aparencia',
+                    iconCls:'x-fa fa-cogs',
+                    tooltip: 'Preferencias do sistema.',
                     layout:'fit',
+                    bodyPadding:10,
                     default:{
                         bodyPadding:10
                     },
@@ -27,28 +28,34 @@ Ext.define("Miniloja.view.systemSettings.SystemSettings",{
                         {
                             xtype      : 'fieldcontainer',
                             fieldLabel : 'Tamanho do Botao',
-                            defaultType: 'radiofield',
-                            defaults: {
-                                flex: 1,
-                                name      : 'buttonScale',
-                                bind:{
-                                    value:'{buttonScale}'
-                                }
+                            layout: 'vbox',
+                            defaults:{
+                                margin: '5 5 5 5',
+                                bodyPadding:10
                             },
-                            layout: 'hbox',
                             items: [
                                 {
-                                    boxLabel  : 'Medio',
-                                    inputValue: 'medium',
-                                    id        : 'm'
-                                }, {
-                                    boxLabel  : 'Grande',
-                                    inputValue: 'large',
-                                    id        : 'l'
-                                }, {
-                                    boxLabel  : 'Pequeno',
-                                    inputValue: 'small',
-                                    id        : 's'
+                                    xtype:'slider',
+                                    width: 100,
+                                    tipText: function(valor) { 
+                                        var arr = ['Botão pequeno','Botão médio','Botão grande'];
+                                        return arr[valor.value];
+                                    },
+                                    minValue:0,
+                                    maxValue:2,
+                                    increment:1,
+                                    value:2,
+                                    bind: {
+                                        value:'{userSettings.buttonSize}'
+                                    }
+                                },
+                                {
+                                    xtype:'omniButton',
+                                    iconCls:'x-fa fa-info',
+                                    bind:{
+                                        text:'Exemplo',
+                                        scale:'{buttonScale}'
+                                    }
                                 }
                             ]
                         }
