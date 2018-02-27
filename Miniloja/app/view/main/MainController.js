@@ -15,7 +15,6 @@ Ext.define('Miniloja.view.main.MainController', {
                 '*': {
                     redirectTO:'onRedirectTO'
                 }
-
             }
         }
     },

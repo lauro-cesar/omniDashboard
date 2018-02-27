@@ -1,5 +1,5 @@
 Ext.define('Miniloja.model.OmniSetting', {
-    extend: 'Miniloja.model.Base',
+    extend: 'Miniloja.model.base.OmniModel',
     alias: 'model.omniSetting',
     proxy: {
         type: 'localstorage',
@@ -20,6 +20,7 @@ Ext.define('Miniloja.model.OmniSetting', {
     fields: [
         { name: 'tabPosition', type: 'string',defaultValue:'left' },
         { name: 'tabRotation', type: 'int', defaultValue:0 },
-        { name: 'buttonSize', type:'int',defaultValue:'2'}
+        { name: 'toolBarSize', type:'int',defaultValue:'1'},
+        { name: 'navBarSize', type:'int',defaultValue:'1'}
     ]
 });

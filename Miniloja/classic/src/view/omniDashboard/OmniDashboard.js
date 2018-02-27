@@ -4,6 +4,21 @@ Ext.define("Miniloja.view.omniDashboard.OmniDashboard",{
         console.log("Iniciando dash");
         this.callParent(arguments);
     },
+    requires:[
+        'Miniloja.view.base.OmniPanel',
+        'Miniloja.view.base.OmniToolbar',
+        'Miniloja.view.base.OmniTapPanel',
+        'Miniloja.view.omniDashboard.OmniNav',
+        'Miniloja.view.omniDashboard.OmniTray',
+        'Miniloja.view.bigPicture.BigPicture',  
+        'Miniloja.view.customerCare.CustomerCare',
+        'Miniloja.view.orderManager.OrderManager',
+        'Miniloja.view.inventoryManager.InventoryManager',
+        'Miniloja.view.wizardManager.WizardManager',
+        'Miniloja.view.systemSettings.SystemSettings',
+        'Miniloja.view.systemSettings.UserAccount',
+        'Miniloja.view.userSupport.UserSupport'
+    ],
     alias:'widget.omniDashboard',
     xtype:'omniDashboard',
     reference:'omni-dashboard-panel',
@@ -11,7 +26,7 @@ Ext.define("Miniloja.view.omniDashboard.OmniDashboard",{
     defaults:{
         html:null,
         border:false,
-        frame:false,
+        frame:false
     },
     dockedItems: [
         {
@@ -26,31 +41,17 @@ Ext.define("Miniloja.view.omniDashboard.OmniDashboard",{
     items:[
         {
             xtype: 'bigPicture'
-        },        
-        {
+        },{
             xtype: 'customerCare'
-        },
-        {
+        },{
             xtype: 'orderManager'
-        },      
-        {
+        },{
             xtype: 'inventoryManager'
-        },  
-        {
-            xtype: 'siteManager'
-        },
-        {
-            xtype: 'marketingManager'
+        },{
+            xtype:'wizardManager'
         },{
             xtype:'systemSettings'
-        },
-        {
-            xtype:'accountLogout'
-        },
-        {
-            xtype:'wizardManager'
-        },
-        {
+        },{
             xtype:'userSupport'
         }
     ]

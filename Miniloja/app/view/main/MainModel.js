@@ -1,6 +1,31 @@
 Ext.define('Miniloja.view.main.MainModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.main',
+    data:{
+        "i18n":{
+            "Miniloja":{
+                "view":{
+                    "wizardManager":{
+                        "SiteManager":{
+                            "omniToolbar":{
+                                "omniToolButton":{
+                                    "newsite":"Criar novo Site",
+                                    "syncSites":"Sincronizar com OmniEshops"
+                                }
+                            }
+                        }
+                    },
+                    "main":{
+                        "shared":{
+                            "TextRequiredValidator":{
+                                "emptyMessage":"Campo requerido"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+    },
     formulas: {
         userAvatar:function(get){
             if(get('isConnected')){
@@ -12,7 +37,7 @@ Ext.define('Miniloja.view.main.MainModel', {
         logout_url:function(get){
             return get('operation._response.logout_url');
         },
-        login_url:function(get){
+        login_url:function(get) {
             return get('operation._response.login_url');
         },
         isConnected:function(get) {
@@ -23,9 +48,14 @@ Ext.define('Miniloja.view.main.MainModel', {
                 return false;
             }
         },
-        buttonScale:function(get){
-            var Arr = ['small','medium','large'];
-            return Arr[get('userSettings.buttonSize')];
+        scaleArray:function(get){
+            return ['small','medium','large'];
+        },
+        toolBarScale:function(get){
+            return get('scaleArray')[get('userSettings.toolBarSize')];
+        },
+        navBarScale:function(get){
+            return get('scaleArray')[get('userSettings.navBarSize')];
         },
         userSettings:{
             bind: {
@@ -37,10 +67,10 @@ Ext.define('Miniloja.view.main.MainModel', {
                     var settings = Ext.create('model.omniSetting');
                     settings.save();
                     store.add(settings);
+                    store.sync()
                     return settings;
                 } else {
                     var record = store.first();
-                    record.changeScale();
                     return record;
                 }
             }
@@ -65,6 +95,13 @@ Ext.define('Miniloja.view.main.MainModel', {
         }
     },
     stores:{
+        omniSites:{
+            id:'omniSites',
+            autoSync:true,
+            model:'OmniSite',
+            autoLoad:true,
+            session:true
+        },
         omniSettings:{
             id:'omniSettings',
             autoSync:true,
@@ -75,13 +112,13 @@ Ext.define('Miniloja.view.main.MainModel', {
         omniSession:{
             id:'omniSession',
             model:'OmniSession',
-            autoLoad: false,
+            autoLoad: true,
             session:true
         },
         omniTaskQueue:{
             id:'omniTaskQueue',
             model:'OmniTask',
-            autoLoad:false,
+            autoLoad:true,
             session:true
         }
     }

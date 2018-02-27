@@ -3,11 +3,12 @@ Ext.define("Miniloja.view.omniDashboard.OmniNav",{
     overflowHandler:'scroller',
     xtype:'omniNav',
     alias:'widget.omniNav',
+    border:false,
     pack:'start',
     defaults:{
         scale:'large'
     },
-    ui:'omninav',
+    ui:'footer',
     items:[
         {
             xtype:'omniButton',

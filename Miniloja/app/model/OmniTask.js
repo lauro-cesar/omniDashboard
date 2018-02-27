@@ -1,5 +1,5 @@
 Ext.define('Miniloja.model.OmniTask', {
-    extend: 'Miniloja.model.Base',
+    extend: 'Miniloja.model.base.OmniModel',
     alias: 'model.omniTask',
     proxy: {
         type: 'localstorage',

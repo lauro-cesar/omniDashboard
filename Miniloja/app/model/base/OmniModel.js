@@ -1,7 +1,7 @@
-
-Ext.define('Miniloja.model.Base', {
+Ext.define('Miniloja.model.base.OmniModel', {
     extend: 'Ext.data.Model',
-     requires: [
+    requires: [
+        'Miniloja.view.main.shared.TextRequiredValidator',
         'Ext.data.Field'
     ],
     fields: [
@@ -12,5 +12,3 @@ Ext.define('Miniloja.model.Base', {
         namespace: 'Miniloja.model'
     }
 });
-
-

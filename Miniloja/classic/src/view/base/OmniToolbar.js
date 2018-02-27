@@ -4,7 +4,8 @@ Ext.define("Miniloja.view.base.OmniToolbar",{
     xtype:'omniToolbar',
     alias:'widget.omniToolbar',
     pack:'start',
+    border:false,
     defaults:{
-        scale:'large'
+        scale:'small'
     },
 });

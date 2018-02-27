@@ -6,10 +6,22 @@ Ext.define("Miniloja.view.userSupport.UserSupport",{
     },
     alias:'widget.userSupport',
     xtype:'userSupport',
+    requires:[
+        'Miniloja.view.userSupport.ComunitySupport',
+        'Miniloja.view.userSupport.PaidSupport'
+    ],
     layout:'fit',
     items:[
         {
-            xtype: 'omniPanel'
+            xtype:'omniTapPanel',
+            items:[
+                {
+                    xtype:'paidSupport'
+                },
+                {
+                    xtype:'comunitySupport'
+                }
+            ]
         }
     ]
     });

@@ -1,10 +1,10 @@
 Ext.define('Miniloja.model.OmniSession', {
-    extend: 'Miniloja.model.Base',
+    extend: 'Miniloja.model.base.OmniModel',
     alias: 'model.omniSession',
     proxy: {
         type: 'jsonp',
         callbackKey: 'omniCallBack',
-        url:'https://accounts.omnieshop.com/accountmanager/profile/settings/',
+        url:'https://accounts.omnieshops.com/accountmanager/profile/settings/',
         reader: {
             type: 'json',
             rootProperty: 'itens',

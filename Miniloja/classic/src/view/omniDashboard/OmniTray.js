@@ -4,7 +4,8 @@ Ext.define("Miniloja.view.omniDashboard.OmniTray",{
     xtype:'omniTray',
     alias:'widget.omniTray',
     pack:'start',
-    ui:'omnitray',
+    ui:'footer',
+    border:false,
     defaults:{
         scale:'medium'
     },

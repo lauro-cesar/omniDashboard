@@ -1,0 +1,25 @@
+{
+    "i18n":{
+    "Miniloja":{
+        "view":{
+            "wizardManager":{
+                "SiteManager":{
+                    "omniToolbar":{
+                        "omniToolButton":{
+                            "newsite":"Criar novo Site",
+                            "syncSites":"Sincronizar com OmniEshops"
+                        }
+                    }
+                }
+            },
+            "main":{
+                "shared":{
+                    "TextRequiredValidator":{
+                        "emptyMessage":"Campo requerido"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

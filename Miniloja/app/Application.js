@@ -9,27 +9,15 @@ Ext.define('Miniloja.Application', {
         }
     },
     models:[
-        'OmniSession','OmniTask','OmniSetting'
+        'OmniSession','OmniTask','OmniSetting','OmniSite'
+    ],
+    requires:[
+        'Miniloja.view.main.Main'
     ],
     launch: function () {
-        
         var mainView = Ext.create('Miniloja.view.main.Main',{
             id:'omni-main'
         });
-
-        // var Settings = this.getViewModel().getData().userSettings;
-        // console.log(Settings);
-        // mainView.add({
-        //     xtype:'omniDashboard',
-        //     links:{
-        //         userSettings: Settings || {
-        //             type:'OmniSetting',
-        //             create:true
-        //         }
-        //     },
-        //     region:'center'
-        // });
-
     },
     onAppUpdate: function () {
         Ext.Msg.confirm('Atualização disponível', 'Existe uma atualização, gostaria de baixar agora?',
