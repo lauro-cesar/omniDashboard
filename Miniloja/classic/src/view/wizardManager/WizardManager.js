@@ -6,14 +6,14 @@ Ext.define("Miniloja.view.wizardManager.WizardManager",{
     alias:'widget.wizardManager',
     xtype:'wizardManager',
     requires: [
-        'Miniloja.view.wizardManager.SiteManager'
+        'Miniloja.view.wizardManager.SitesManager'
     ],
     items:[
         {
             xtype:'omniTapPanel',
             items:[
                 {
-                    xtype:'siteManager'
+                    xtype:'sitesManager'
                 }
                 // {
                 //     xtype:'omniPanel',

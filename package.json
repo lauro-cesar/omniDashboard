@@ -1,0 +1,20 @@
+{
+    "name": "omniEshopsDashboard",
+    "author": {
+      "name": "OmniEshops Dashboard",
+      "email": "lauro@hostcert.com.br"
+    },
+    "homepage": "https://lauro-cesar.github.io/omniDashboard/",
+    "license": "GPL",
+    "version": "1.0.1",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/lauro-cesar/omniDashboard.git"
+    },
+    "engines": {
+      "ExtJS": ">= 6.5.0"
+    },
+    "devDependencies": {
+      "Sencha CMD": ">= 6.5.0"
+    }
+  }

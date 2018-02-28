@@ -1,10 +1,10 @@
 Ext.define("Miniloja.view.omniDashboard.OmniDashboard",{
     extend: "Miniloja.view.base.OmniPanel",
     initComponent: function () {
-        console.log("Iniciando dash");
         this.callParent(arguments);
     },
     requires:[
+        'Miniloja.view.base.OmniDataView',
         'Miniloja.view.base.OmniPanel',
         'Miniloja.view.base.OmniToolbar',
         'Miniloja.view.base.OmniTapPanel',
@@ -17,7 +17,8 @@ Ext.define("Miniloja.view.omniDashboard.OmniDashboard",{
         'Miniloja.view.wizardManager.WizardManager',
         'Miniloja.view.systemSettings.SystemSettings',
         'Miniloja.view.systemSettings.UserAccount',
-        'Miniloja.view.userSupport.UserSupport'
+        'Miniloja.view.userSupport.UserSupport',
+        'Miniloja.view.aboutUs.AboutUs'
     ],
     alias:'widget.omniDashboard',
     xtype:'omniDashboard',
@@ -53,6 +54,8 @@ Ext.define("Miniloja.view.omniDashboard.OmniDashboard",{
             xtype:'systemSettings'
         },{
             xtype:'userSupport'
+        },{
+            xtype:'aboutUs'
         }
     ]
     });

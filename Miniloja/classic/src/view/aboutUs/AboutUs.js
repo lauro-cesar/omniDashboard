@@ -1,0 +1,34 @@
+Ext.define("Miniloja.view.aboutUs.AboutUs",{
+    extend: "Miniloja.view.base.OmniPanel",
+    initComponent: function () {
+        this.callParent(arguments);
+    },
+    alias:'widget.aboutUs',
+    xtype:'aboutUs',
+    requires:[
+        'Miniloja.view.aboutUs.Developer',
+        'Miniloja.view.aboutUs.OmniEshops',
+        'Miniloja.view.aboutUs.ContactUs',
+        'Miniloja.view.aboutUs.Licence'
+    ],
+    layout:'fit',
+    items:[
+        {
+            xtype:'omniTapPanel',
+            items:[
+                {
+                    xtype:'omniEshops'
+                },
+                {
+                    xtype:'contactUs'
+                },
+                {
+                    xtype:'developer'
+                },
+                {
+                    xtype:'licence'
+                }
+            ]
+        }
+    ]
+    });

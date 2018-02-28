@@ -1,9 +1,7 @@
 Ext.define('Miniloja.model.base.OmniSiteModel', {
     extend: 'Miniloja.model.base.OmniModel',
-    validators:{
-        shopID: { type:'length',min:1, max:128, emptyMessage: 'Por favor, selecione a loja'}
-    },
     fields: [
+        { name: 'shopID',type:'auto'},
         { name: 'domainName', type: 'auto' },
         { name: 'linkedin_link',defaultValue:''},
         { name: 'skype_account',defaultValue:''},

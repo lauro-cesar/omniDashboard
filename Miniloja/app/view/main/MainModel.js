@@ -63,7 +63,7 @@ Ext.define('Miniloja.view.main.MainModel', {
                 deep:true
             },
             get: function(store) {
-                if(store.count() <1){
+                if(store.count() < 1 ) {
                     var settings = Ext.create('model.omniSetting');
                     settings.save();
                     store.add(settings);
@@ -95,11 +95,20 @@ Ext.define('Miniloja.view.main.MainModel', {
         }
     },
     stores:{
+        omniSitesSync:{
+            id:'omniSitesSync',
+            clearOnPageLoad:false,
+            autoSync:false,
+            model:'OmniSiteSync',
+            autoLoad:false,
+            session:false
+        },        
         omniSites:{
             id:'omniSites',
             autoSync:true,
             model:'OmniSite',
             autoLoad:true,
+            remoteFilter:true,
             session:true
         },
         omniSettings:{

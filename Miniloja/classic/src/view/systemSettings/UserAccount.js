@@ -12,6 +12,7 @@ Ext.define("Miniloja.view.systemSettings.UserAccount",{
     items:[
         {
             xtype:'omniPanel',
+            html:'Meus Dados',
             bind:{
                 html:'Nome: {sessionSettings.fullName}<br><a href="{logout_url}">Logout url</a>'
             }

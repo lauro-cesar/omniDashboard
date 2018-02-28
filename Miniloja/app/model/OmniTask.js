@@ -1,3 +1,4 @@
+
 Ext.define('Miniloja.model.OmniTask', {
     extend: 'Miniloja.model.base.OmniModel',
     alias: 'model.omniTask',

@@ -11,12 +11,63 @@ Ext.define('Miniloja.view.main.MainController', {
     },
     config: {
         listen: {
+            store:{
+                '#omniSession':{
+                    load:'onLoadSession'
+                }
+            },
             component: {
                 '*': {
+                    loadRemoteSites:'onLoadRemoteSites',
                     redirectTO:'onRedirectTO'
                 }
             }
         }
+    },
+    onLoadRemoteSites:function(page){
+        console.log( Ext.String.format("Sincronizar pagina: {0}",page) );
+        var me = this;
+        var myview = me.getView();
+        myview.mask("Sincronizando...");
+        var omniSitesRemoteStore = me.getStore('omniSitesSync');
+        if (omniSitesRemoteStore) {
+            omniSitesRemoteStore.loadPage(page,{
+                callback:function(records, operation, success) {
+                    var locaSitesStores =  me.getStore('omniSites');
+                    if(locaSitesStores){
+                        Ext.Array.each(records,function(record){
+                            locaSitesStores.filter('shopID', record.get('shopID'));
+                            var objeto = record.getData();
+                            delete objeto.id;
+                            if(locaSitesStores.count() > 0 ) {
+                                var omniSite = locaSitesStores.first();
+                                omniSite.set(objeto);
+                                omniSite.save();
+                            } else {
+                                var omniSite = Ext.create('model.omniSite');
+                                omniSite.set(objeto);
+                                omniSite.save();
+                                locaSitesStores.add( omniSite );
+                            }
+                            locaSitesStores.clearFilter();
+                            myview.mask("Syncronizando loja...:???");
+                        });
+                    } else {
+                        console.log("Nao tem localSites Store");
+                    }
+                    if (omniSitesRemoteStore.getTotalCount() > omniSitesRemoteStore.getCount()){
+                        myview.fireEvent("loadRemoteSites",page+1);
+                    }
+                    
+                    myview.unmask();
+                }
+
+            });
+
+        } else {
+            console.log("Nao achei Store");
+        }
+
     },
     runNextTask:function(taskList){
         var me=this;
